@@ -6,7 +6,7 @@ def read_in():
     caller = Path.cwd()
     full_path = caller / filename
     with open(full_path, "r") as file:
-        content = file.readlines()
+        content = list(map(lambda x: x.strip(), file.readlines()))
     return content
 
 
