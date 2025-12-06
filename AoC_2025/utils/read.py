@@ -1,12 +1,15 @@
 from pathlib import Path
 import sys
 
-def read_in():
+def read_in(dont_strip = False):
     filename = "in.txt"
     caller = Path.cwd()
     full_path = caller / filename
     with open(full_path, "r") as file:
-        content = list(map(lambda x: x.strip(), file.readlines()))
+        if dont_strip:
+            content = file.readlines()
+        else:
+            content = list(map(lambda x: x.strip(), file.readlines()))
     return content
 
 
